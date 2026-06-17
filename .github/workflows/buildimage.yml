@@ -140,8 +140,8 @@ jobs:
     name: Build for Darwin ARM64
     runs-on: macos-latest
     steps:
-      - name: Install PostgreSQL@14
-        run: brew install --force postgresql@14
+      - name: Install PostgreSQL@15
+        run: brew install --force postgresql@15
 
       - name: PGConfig
         run: |-
