@@ -1,8 +1,10 @@
 package hub
 
 import (
-	"github.com/turbot/steampipe-plugin-sdk/v6/logging"
+	"os"
 	"sync"
+
+	"github.com/turbot/steampipe-plugin-sdk/v6/logging"
 )
 
 // global hub instance
@@ -28,8 +30,11 @@ func CreateHub() error {
 	defer hubMux.Unlock()
 
 	var err error
-	hubSingleton, err = newRemoteHub()
-
+	if addr := os.Getenv("STEAMPIPE_GRPC_ADDRESS"); addr != "" {
+		hubSingleton, err = newDirectHub(addr)
+	} else {
+		hubSingleton, err = newRemoteHub()
+	}
 	if err != nil {
 		return err
 	}
