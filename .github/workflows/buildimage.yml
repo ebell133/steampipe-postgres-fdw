@@ -21,8 +21,8 @@ jobs:
     name: Build for Darwin x86_64
     runs-on: macos-15-intel
     steps:
-      - name: Install PostgreSQL@14
-        run: brew install --force postgresql@14
+      - name: Install PostgreSQL@15
+        run: brew install --force postgresql@15
 
       - name: PGConfig
         run: |-
