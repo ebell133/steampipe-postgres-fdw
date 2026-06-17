@@ -280,9 +280,9 @@ jobs:
           sudo env ACCEPT_EULA=Y apt-get update
           sudo env ACCEPT_EULA=Y apt-get upgrade
 
-      - name: Install PostgreSQL14 Dev
+      - name: Install PostgreSQL15 Dev
         run: |-
-          sudo apt-get -y install postgresql-server-dev-14
+          sudo apt-get -y install postgresql-server-dev-15
 
       - name: Find stuff and set env
         run: |-
@@ -293,7 +293,7 @@ jobs:
           export PATH=$(pg_config --bindir):$PATH
           export PGXS=$(pg_config --pgxs)
       
-          export SERVER_LIB=$(pg_config --includedir)/14/server
+          export SERVER_LIB=$(pg_config --includedir)/15/server
           export INTERNAL_LIB=$(pg_config --includedir)/internal
 
           export CFLAGS="$(pg_config --cflags) -I${SERVER_LIB} -I${INTERNAL_LIB} -g"
@@ -365,9 +365,9 @@ jobs:
           sudo env ACCEPT_EULA=Y apt-get update
           sudo env ACCEPT_EULA=Y apt-get upgrade
 
-      - name: Install PostgreSQL14 Dev
+      - name: Install PostgreSQL15 Dev
         run: |-
-          sudo apt-get -y install postgresql-server-dev-14
+          sudo apt-get -y install postgresql-server-dev-15
 
       - name: Find stuff and set env
         run: |-
@@ -378,7 +378,7 @@ jobs:
           export PATH=$(pg_config --bindir):$PATH
           export PGXS=$(pg_config --pgxs)
       
-          export SERVER_LIB=$(pg_config --includedir)/14/server
+          export SERVER_LIB=$(pg_config --includedir)/15/server
           export INTERNAL_LIB=$(pg_config --includedir)/internal
 
           export CFLAGS="$(pg_config --cflags) -I${SERVER_LIB} -I${INTERNAL_LIB} -g"
